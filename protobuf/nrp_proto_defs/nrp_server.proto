@@ -4,12 +4,12 @@ package NrpCore;
 
 service NrpCore
 {
-    rpc initialize (EmptyMessage)   returns (SimStateMessage) {}
-    rpc runLoop (RunLoopMessage) returns (SimStateMessage) {}
-    rpc runUntilTimeout (EmptyMessage) returns (SimStateMessage) {}
-    rpc stopLoop (EmptyMessage)   returns (SimStateMessage) {}
-    rpc reset (EmptyMessage)   returns (SimStateMessage) {}
-    rpc shutdown (EmptyMessage)   returns (SimStateMessage) {}
+    rpc initialize     (EmptyMessage)   returns (Response) {}
+    rpc runLoop        (RunLoopMessage) returns (Response) {}
+    rpc runUntilTimeout(EmptyMessage)   returns (Response) {}
+    rpc stopLoop       (EmptyMessage)   returns (Response) {}
+    rpc reset          (EmptyMessage)   returns (Response) {}
+    rpc shutdown       (EmptyMessage)   returns (Response) {}
 }
 
 message EmptyMessage
@@ -21,6 +21,14 @@ message SimStateMessage
 {
     string currentState = 1;
     string errorMsg = 2;
+}
+
+// The 'json' field is used to return simulation status data from 'runLoop' call
+// In all other cases it should be left unset/empty
+message Response
+{
+    SimStateMessage simState = 1;
+    string          json     = 2;
 }
 
 message RunLoopMessage
