@@ -33,7 +33,8 @@ message Response
 
 message RunLoopMessage
 {
-    int32 numIterations = 1;
+    int32  numIterations = 1;
+    string json          = 2;
 }
 
 // EOF
