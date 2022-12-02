@@ -25,6 +25,17 @@ message Link
 }
 
 /*
+ * Data coming from gazebo model datapack
+ */
+message Model
+{
+    repeated float position        = 1;
+    repeated float rotation        = 2;
+    repeated float linearVelocity  = 3;
+    repeated float angularVelocity = 4;
+}
+
+/*
  * Data coming from gazebo joint datapack
  */
 message Joint
