@@ -2,11 +2,14 @@ syntax = "proto3";
 
 package NrpCore;
 
+import "google/protobuf/any.proto";
+import "engine_grpc.proto";
+
 service NrpCore
 {
     rpc initialize     (EmptyMessage)   returns (Response) {}
-    rpc runLoop        (RunLoopMessage) returns (Response) {}
-    rpc runUntilTimeout(EmptyMessage)   returns (Response) {}
+    rpc runLoop        (RunLoopMessage) returns (RunLoopResponse) {}
+    rpc runUntilTimeout(EmptyMessage)   returns (RunLoopResponse) {}
     rpc stopLoop       (EmptyMessage)   returns (Response) {}
     rpc reset          (EmptyMessage)   returns (Response) {}
     rpc shutdown       (EmptyMessage)   returns (Response) {}
@@ -23,18 +26,31 @@ message SimStateMessage
     string errorMsg = 2;
 }
 
-// The 'json' field is used to return simulation status data from 'runLoop' call
-// In all other cases it should be left unset/empty
 message Response
 {
     SimStateMessage simState = 1;
-    string          json     = 2;
+}
+
+message TrajectoryMessage
+{
+    int32               dataIndex = 1;
+    google.protobuf.Any data      = 2;
+}
+
+message RunLoopResponse
+{
+    SimStateMessage simState = 1;
+    bool            doneFlag = 2;
+    bool            timeoutFlag = 3;
+    repeated TrajectoryMessage jsonTrajectoryMessages = 4;
+    repeated TrajectoryMessage protoTrajectoryMessages = 5;
 }
 
 message RunLoopMessage
 {
-    int32  numIterations = 1;
-    string json          = 2;
+    int32 numIterations = 1;
+    repeated EngineGrpc.DataPackMessage jsonDataPacks = 2;
+    repeated EngineGrpc.DataPackMessage protoDataPacks = 3;
 }
 
 // EOF
