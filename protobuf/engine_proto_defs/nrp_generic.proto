@@ -62,6 +62,12 @@ message ArrayUInt64
     repeated uint32 dims = 2;
 }
 
+message ArrayBool
+{
+    repeated bool array = 1;
+    repeated uint32 dims = 2;
+}
+
 enum IMAGE_TYPE
 {
     OTHER  = 0;
