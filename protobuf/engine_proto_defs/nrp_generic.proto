@@ -16,49 +16,49 @@ message ArrayBytes
 
 message ArrayFloat
 {
-    repeated float flatArray = 1;
+    repeated float array = 1;
     repeated uint32 dims = 2;
 }
 
 message ArrayDouble
 {
-    repeated double flatArray = 1;
+    repeated double array = 1;
     repeated uint32 dims = 2;
 }
 
 message ArrayInt32
 {
-    repeated int32 flatArray = 1;
+    repeated int32 array = 1;
     repeated uint32 dims = 2;
 }
 
 message ArrayInt64
 {
-    repeated int64 flatArray = 1;
+    repeated int64 array = 1;
     repeated uint32 dims = 2;
 }
 
 message ArraySInt32
 {
-    repeated sint32 flatArray = 1;
+    repeated sint32 array = 1;
     repeated uint32 dims = 2;
 }
 
 message ArraySInt64
 {
-    repeated sint64 flatArray = 1;
+    repeated sint64 array = 1;
     repeated uint32 dims = 2;
 }
 
 message ArrayUInt32
 {
-    repeated uint32 flatArray = 1;
+    repeated uint32 array = 1;
     repeated uint32 dims = 2;
 }
 
 message ArrayUInt64
 {
-    repeated uint64 flatArray = 1;
+    repeated uint64 array = 1;
     repeated uint32 dims = 2;
 }
 
