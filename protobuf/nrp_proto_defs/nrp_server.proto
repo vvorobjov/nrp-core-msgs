@@ -20,6 +20,11 @@ message EmptyMessage
 
 }
 
+message JsonMessage
+{
+    string data = 1;
+}
+
 message SimStateMessage
 {
     string currentState = 1;
