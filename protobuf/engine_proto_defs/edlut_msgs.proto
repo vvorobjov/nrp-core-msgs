@@ -1,0 +1,13 @@
+syntax = "proto3";
+ 
+package EdlutData;
+ 
+/*
+ * Data coming from edlut datapack
+ */
+message Spikes
+{
+    float time     = 5;
+    repeated float spikes_time = 6;
+    repeated uint32 neuron_indexes = 7;
+}
