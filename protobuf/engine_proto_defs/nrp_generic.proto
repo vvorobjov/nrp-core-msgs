@@ -95,9 +95,10 @@ message Image
 {
     uint32     height      = 1;
     uint32     width       = 2;
-    IMAGE_TYPE type        = 3;
-    bool       isBigEndian = 4;
-    bytes      data        = 5;
+    uint32     step        = 3;  // Full row length in bytes
+    IMAGE_TYPE type        = 4;
+    bool       isBigEndian = 5;
+    bytes      data        = 6;
 }
 
 // EOF
