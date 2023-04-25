@@ -5,67 +5,67 @@ package NrpGenericProto;
 message ArrayString
 {
     repeated string array = 1;
-    repeated uint32 dims = 2;
+    repeated uint32 shape = 2;
 }
 
 message ArrayBytes
 {
     repeated bytes array = 1;
-    repeated uint32 dims = 2;
+    repeated uint32 shape = 2;
 }
 
 message ArrayFloat
 {
     repeated float array = 1;
-    repeated uint32 dims = 2;
+    repeated uint32 shape = 2;
 }
 
 message ArrayDouble
 {
     repeated double array = 1;
-    repeated uint32 dims = 2;
+    repeated uint32 shape = 2;
 }
 
 message ArrayInt32
 {
     repeated int32 array = 1;
-    repeated uint32 dims = 2;
+    repeated uint32 shape = 2;
 }
 
 message ArrayInt64
 {
     repeated int64 array = 1;
-    repeated uint32 dims = 2;
+    repeated uint32 shape = 2;
 }
 
 message ArraySInt32
 {
     repeated sint32 array = 1;
-    repeated uint32 dims = 2;
+    repeated uint32 shape = 2;
 }
 
 message ArraySInt64
 {
     repeated sint64 array = 1;
-    repeated uint32 dims = 2;
+    repeated uint32 shape = 2;
 }
 
 message ArrayUInt32
 {
     repeated uint32 array = 1;
-    repeated uint32 dims = 2;
+    repeated uint32 shape = 2;
 }
 
 message ArrayUInt64
 {
     repeated uint64 array = 1;
-    repeated uint32 dims = 2;
+    repeated uint32 shape = 2;
 }
 
 message ArrayBool
 {
     repeated bool array = 1;
-    repeated uint32 dims = 2;
+    repeated uint32 shape = 2;
 }
 
 enum IMAGE_TYPE
