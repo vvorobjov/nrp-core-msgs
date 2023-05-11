@@ -11,7 +11,7 @@ service NrpCore
     rpc runLoop        (RunLoopMessage) returns (RunLoopResponse)    {}
     rpc runUntilTimeout(EmptyMessage)   returns (RunLoopResponse)    {}
     rpc stopLoop       (EmptyMessage)   returns (Response)           {}
-    rpc reset          (EmptyMessage)   returns (ResetResponse)      {}
+    rpc reset          (ResetMessage)   returns (ResetResponse)      {}
     rpc shutdown       (EmptyMessage)   returns (Response)           {}
 }
 
@@ -54,6 +54,12 @@ message InitializeResponse
     Trajectory      trajectory = 2;
 }
 
+message DataPacks
+{
+    repeated EngineGrpc.DataPackMessage jsonDataPacks = 2;
+    repeated EngineGrpc.DataPackMessage protoDataPacks = 3;
+}
+
 message RunLoopResponse
 {
     SimStateMessage simState    = 1;
@@ -64,9 +70,13 @@ message RunLoopResponse
 
 message RunLoopMessage
 {
-    int32 numIterations = 1;
-    repeated EngineGrpc.DataPackMessage jsonDataPacks = 2;
-    repeated EngineGrpc.DataPackMessage protoDataPacks = 3;
+    int32     numIterations = 1;
+    DataPacks dataPacks     = 2;
+}
+
+message ResetMessage
+{
+    DataPacks dataPacks = 1;
 }
 
 message ResetResponse
